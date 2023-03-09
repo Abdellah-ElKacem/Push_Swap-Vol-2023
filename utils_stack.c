@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   psh_stack.c                                        :+:      :+:    :+:   */
+/*   utils_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 20:16:46 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/03/09 13:48:19 by ael-kace         ###   ########.fr       */
+/*   Created: 2023/03/09 13:52:21 by ael-kace          #+#    #+#             */
+/*   Updated: 2023/03/09 13:56:08 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	psh_stk_a(t_stack **stack_a, t_stack **stack_b)
+size_t	stack_size(t_stack *data)
 {
-	t_stack	*tmp;
+	size_t	size;
 
-
-	if ()
+	size = 0;
+	while (data)
+	{
+		data = data->next;
+		size++;
+	}
+	return (size);
 }
