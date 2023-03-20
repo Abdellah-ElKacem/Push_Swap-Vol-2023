@@ -6,7 +6,7 @@
 #    By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 19:52:29 by ael-kace          #+#    #+#              #
-#    Updated: 2023/03/08 19:52:31 by ael-kace         ###   ########.fr        #
+#    Updated: 2023/03/18 15:29:15 by ael-kace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = PUSH_SWAP
 
 HEADER = push_swap.h
 
-SRC = 
+SRC = push_swap.c psh_stack.c swp_stack.c utils_stack.c 
 
 OBJ = $(SRC:.c = .o)
 

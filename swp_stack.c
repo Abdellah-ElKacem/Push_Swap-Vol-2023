@@ -6,7 +6,7 @@
 /*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:16:18 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/03/08 20:16:19 by ael-kace         ###   ########.fr       */
+/*   Updated: 2023/03/20 09:48:59 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "push_swap.h"
 
-void	swp_stk_a(t_stack **stack_a)
+void	sa(t_stack **stack_a, int nbr)
 {
 	int	swp;
 
@@ -24,10 +24,11 @@ void	swp_stk_a(t_stack **stack_a)
 		(*stack_a)->nbr = (*stack_a)->next->nbr;
 		(*stack_a)->next->nbr = swp;
 	}
-	write(1, "sa\n", 3);
+	if (nbr == 1)
+		write(1, "sa\n", 3);
 }
 
-void	swp_stk_b(t_stack **stack_b)
+void	sb(t_stack **stack_b, int nbr)
 {
 	int	swp;
 
@@ -37,12 +38,13 @@ void	swp_stk_b(t_stack **stack_b)
 		(*stack_b)->nbr = (*stack_b)->next->nbr;
 		(*stack_b)->next->nbr = swp;
 	}
-	write(1, "sb\n", 3);
+	if (nbr == 1)
+		write(1, "sb\n", 3);
 }
 
-void	swp_both(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	swp_stk_a(stack_a);
-	swp_stk_b(stack_b);
+	sa(stack_a, 0);
+	sb(stack_b, 0);
 	write(1, "ss\n", 3);
 }

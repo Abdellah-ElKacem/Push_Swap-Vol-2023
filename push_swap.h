@@ -6,7 +6,7 @@
 /*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:26:27 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/03/09 23:01:45 by ael-kace         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:14:57 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "./tool_lib/libft.h"
 
 typedef struct s_stack
 {
