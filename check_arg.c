@@ -1,30 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:26:27 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/03/26 22:07:21 by ael-kace         ###   ########.fr       */
+/*   Created: 2023/03/25 15:50:50 by ael-kace          #+#    #+#             */
+/*   Updated: 2023/03/26 16:47:21 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "./tool_lib/libft.h"
-
-typedef struct s_stack
+int	check_num(char *str)
 {
-	int				nbr;
-	struct s_stack	*next;
-}					t_stack;
+	int	i;
 
-size_t	stack_size(t_stack *data);
-int		check_num(char *str);
+	i = 0;
+	while (str[i])
+	{
+		if (str[0] == '+' || str[0] == '-')
+			i++;
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-#endif
+int	check_dbl(char **av)
+{
+	char	**tmp;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 1;
+	tmp = av;
+	while (av[i])
+	{
+		while (tmp[j])
+		{
+			if (av[i] == av[j])
+				return (0);
+			j++;
+		}
+	}
+	return (0);
+}
