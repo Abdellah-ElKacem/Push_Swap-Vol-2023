@@ -3,37 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdellah_elkacem <abdellah_elkacem@stud    +#+  +:+       +#+        */
+/*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:26:37 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/04/02 17:47:18 by abdellah_el      ###   ########.fr       */
+/*   Updated: 2023/04/16 21:28:36 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	sorting(t_stack **stack_a, t_stack **stack_b)
+{
+	t_data	data;
+
+	if (ft_lstsize(*stack_a) >= 2 && ft_lstsize(*stack_a) <= 5)
+		easy_sort_mod(stack_a, stack_b);
+	else if (ft_lstsize(*stack_a) <= 100)
+		take_chanks(&data, stack_a, stack_b, 4);
+	else
+		take_chanks(&data, stack_a, stack_b, 8);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
-	// t_stack	*stack_b;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	if (ac > 1)
 	{
-		stack_a = join_stck(stack_a, ac, av);
+		stack_a = ft_join_stck(stack_a, ac, av);
 		if (!stack_a)
-			ft_exite();
-		if (check_sort(&stack_a) == 1)
-			printf("is sorted\n");
-		if (check_sort(&stack_a) == 0)
-			printf("is not sorted\n");
-		// check_sort(&stack_a);
-		while (stack_a)
+			ft_exite(stack_a);
+		if (ft_check_sort(stack_a))
 		{
-			printf("stack_a = %d\n", stack_a->nbr);
-			stack_a = stack_a->next;
+			ft_lstclear(&stack_a);
+			exit(1);
 		}
+		sorting(&stack_a, &stack_b);
+		ft_lstclear(&stack_a);
 	}
 	else
 		exit(1);

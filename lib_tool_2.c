@@ -6,7 +6,7 @@
 /*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 14:41:39 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/03/30 22:40:35 by ael-kace         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:45:14 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_lstnew(int nbr)
 	if (!new)
 		return (NULL);
 	new->nbr = nbr;
+	new->pos = 0;
 	new->next = NULL;
 	return (new);
 }
@@ -62,8 +63,18 @@ t_stack	*ft_lstlast(t_stack *lst)
 void	ft_lstadd_back(t_stack **alst, t_stack *new)
 {
 	t_stack	*last;
+	t_stack	*tmp;
 
+	tmp = (*alst);
 	last = ft_lstlast(*alst);
+	while (tmp)
+	{
+		if (tmp->nbr < new->nbr)
+			new->pos++;
+		else
+			tmp->pos++;
+		tmp = tmp->next;
+	}
 	if (!last)
 		*alst = new;
 	last->next = new;

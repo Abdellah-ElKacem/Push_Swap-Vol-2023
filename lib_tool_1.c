@@ -6,7 +6,7 @@
 /*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:54:33 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/03/30 22:19:23 by ael-kace         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:00:57 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int				i;
 	int				sign;
-	int				result;
+	long long		result;
 
 	i = 0;
 	sign = 1;
@@ -90,19 +90,12 @@ int	ft_atoi(const char *str)
 		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
-	return (result * sign);
+	result = result * sign;
+	return (ft_rrange(result), result);
 }
 
-void	**freed(char **str)
+void	ft_rrange(long long res)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free (str);
-	return (NULL);
+	if (res < INT_MIN || res > INT_MAX)
+		ft_exi();
 }

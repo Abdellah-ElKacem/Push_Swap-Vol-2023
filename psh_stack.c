@@ -3,37 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   psh_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdellah_elkacem <abdellah_elkacem@stud    +#+  +:+       +#+        */
+/*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:16:46 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/04/02 17:58:19 by abdellah_el      ###   ########.fr       */
+/*   Updated: 2023/04/16 18:34:08 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	pa(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	t_stack	*tmp;
+void	ft_pa(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*tmp;
 
-// 	if (stack_size(*stack_b) > 0)
-// 	{
-// 		(*stack_a)->nbr = (*stack_b)->nbr;
-// 	}
-// 	free (tmp);
-// 	write (1, "pa\n", 1);
-// }
+	if (*stack_b)
+	{
+		tmp = (*stack_b);
+		ft_lstadd_front(stack_a, ft_lstnew(tmp->nbr));
+		(*stack_b) = (*stack_b)->next;
+		ft_lstdelone(tmp);
+		write (1, "pa\n", 3);
+	}
+}
 
-// void	pb(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	t_stack	*tmp;
+void	ft_pb(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*tmp;
 
-// 	if (stack_size(*stack_a) > 0)
-// 	{
-// 		*stack_b = tmp;
-// 		tmp = *stack_a;
-// 		free(*stack_b);
-// 	}
-// 	free (tmp);
-// 	write (1, "pa\n", 1);
-// }
+	if (*stack_a)
+	{
+		tmp = (*stack_a);
+		ft_lstadd_front(stack_b, ft_lstnew(tmp->nbr));
+		(*stack_a) = (*stack_a)->next;
+		ft_lstdelone(tmp);
+		write (1, "pb\n", 3);
+	}
+}

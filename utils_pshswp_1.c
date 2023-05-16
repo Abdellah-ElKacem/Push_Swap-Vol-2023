@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   llib_tool_3.c                                      :+:      :+:    :+:   */
+/*   utils_pshswp_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-kace <ael-kace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:50:51 by ael-kace          #+#    #+#             */
-/*   Updated: 2023/04/16 17:53:50 by ael-kace         ###   ########.fr       */
+/*   Created: 2023/04/16 16:11:45 by ael-kace          #+#    #+#             */
+/*   Updated: 2023/04/16 21:17:08 by ael-kace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstdelone(t_stack *lst)
+void	**ft_freed(char **str)
 {
-	if (lst)
-		free (lst);
-	return ;
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free (str);
+	return (0);
 }
 
-void	ft_lstclear(t_stack **lst)
+int	ft_exite(t_stack *stack_a)
 {
-	t_stack	*tmp;
-
-	if (!lst || !*lst)
-		return ;
-	while (lst && *lst)
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst);
-		*lst = tmp;
-	}
-	*lst = NULL;
+	ft_lstclear(&stack_a);
+	write(2, "Error\n", 6);
+	exit(1);
 }
